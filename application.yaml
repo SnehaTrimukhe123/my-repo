@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd  # Ensure this matches the namespace ArgoCD is installed in
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SnehaTrimukhe123/my-repo.git  
+    path: guestbook  # The path to the directory containing your Kubernetes manifests
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default  # The target namespace in your Kubernetes cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
