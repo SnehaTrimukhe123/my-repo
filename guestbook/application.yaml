@@ -15,4 +15,4 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: true  # This line ensures that ArgoCD can automatically prune resources and self-heal
